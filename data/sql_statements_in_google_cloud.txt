@@ -1,0 +1,10 @@
+SELECT * FROM
+  `uvi-database`.`NiwaForecasts`
+   where GeoLocationId = 4
+   AND UpdatedAt > '2025-03-01 00:00:00';
+
+
+SELECT * 
+FROM `uvi-database`.`Data`
+WHERE DeviceId = 4
+  AND Timestamp > '2025-03-01 00:00:00';

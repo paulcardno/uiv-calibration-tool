@@ -39,11 +39,14 @@ def apply_nz_time_conversion(
     for entry in niwa_clear_sky_hourly:
         if 'datetime' in entry and isinstance(entry['datetime'], datetime):
             entry['datetime_nz'] = to_nz_local_time(entry['datetime'])
+            entry['datetime_nz_date'] = entry['datetime_nz'].date()  # Add date for easier filtering
 
     for entry in niwa_cloudy_sky_hourly:
         if 'datetime' in entry and isinstance(entry['datetime'], datetime):
             entry['datetime_nz'] = to_nz_local_time(entry['datetime'])
+            entry['datetime_nz_date'] = entry['datetime_nz'].date()  # Add date for easier filtering
 
     for entry in uvi_5min:
         if 'datetime' in entry and isinstance(entry['datetime'], datetime):
             entry['datetime_nz'] = to_nz_local_time(entry['datetime'])
+            entry['datetime_nz_date'] = entry['datetime_nz'].date()  # Add date for easier filtering

@@ -2,6 +2,35 @@ from collections import defaultdict
 from datetime import date
 from typing import List, Dict, Tuple
 
+def create_data_by_date(
+    niwa_clear_sky_hourly: List[Dict],
+    niwa_cloudy_sky_hourly: List[Dict],
+    uvi_5min: List[Dict]
+) -> Tuple[Dict[date, List[Dict]], Dict[date, List[Dict]], Dict[date, List[Dict]]]:
+    """   
+    To Make the data more efficient to work with, we group the data by date.  
+    """
+
+    niwa_clear_by_date = defaultdict(list)
+    niwa_cloudy_by_date = defaultdict(list)
+    uvi_5min_by_date = defaultdict(list)
+
+    for entry in niwa_clear_sky_hourly:
+        if 'datetime_nz_date' in entry:
+            niwa_clear_by_date[entry['datetime_nz_date']].append(entry)
+
+    for entry in niwa_cloudy_sky_hourly:
+        if 'datetime_nz_date' in entry:
+            niwa_cloudy_by_date[entry['datetime_nz_date']].append(entry)
+
+    for entry in uvi_5min:
+        if 'datetime_nz_date' in entry:
+            uvi_5min_by_date[entry['datetime_nz_date']].append(entry)
+
+    return niwa_clear_by_date, niwa_cloudy_by_date, uvi_5min_by_date
+
+
+
 
 def find_unique_dates(
     niwa_clear_sky_hourly: List[Dict],

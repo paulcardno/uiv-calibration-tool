@@ -47,6 +47,12 @@ def main():
    if "date_index" not in st.session_state:
       st.session_state.date_index = 0
 
+   # Add a slider to let the user change uvi_scale
+   st.session_state.uvi_scale = st.slider("UVI Scale - Overall", min_value=0.1, max_value=2.0, value=st.session_state.uvi_scale, step=0.05)
+   st.session_state.uvi_scale_upper = st.slider("UVI Scale Upper additional factor at starts at UVI2 and goes to 10 linear between, zero at UVI2", min_value=-1.0, max_value=1.0, value=st.session_state.uvi_scale_upper, step=0.05)
+
+
+
    # Navigation controls
    col1, col2, col3, col4 = st.columns([1, 1, 3, 7])
    with col1:
@@ -71,11 +77,7 @@ def main():
          st.success("Settings saved!")
 
    selected_date = unique_dates[st.session_state.date_index]
-   st.write(f"Showing data for {selected_date}")
-
-   # Add a slider to let the user change uvi_scale
-   st.session_state.uvi_scale = st.slider("UVI Scale - Overall", min_value=0.1, max_value=2.0, value=st.session_state.uvi_scale, step=0.05)
-   st.session_state.uvi_scale_upper = st.slider("UVI Scale Upper additional factor at starts at UVI2 and goes to 10 linear between, zero at UVI2", min_value=-1.0, max_value=1.0, value=st.session_state.uvi_scale_upper, step=0.05)
+   # st.write(f"Showing data for {selected_date}")
 
 
    # Plot (use Plotly for best results)

@@ -70,7 +70,7 @@ def update_graph(
     uvi_5min_uvis = [scale_uvi(u, uvi_scale, uvi_scale_upper) for u in uvi_5min_uvis]
 
     # Re-create a new plot
-    fig, ax = plt.subplots(figsize=(12, 4))
+    fig, ax = plt.subplots(figsize=(8, 3))
     ax.plot(niwa_clear_sky_times, niwa_clear_sky_uvis, label='Niwa Clear Sky', marker='o', linestyle='-')
     ax.plot(niwa_cloudy_sky_times, niwa_cloudy_sky_uvis, label='Niwa Cloudy Sky', marker='x', linestyle='--')
     ax.plot(uvi_5min_times, uvi_5min_uvis, label='UVI 5-minute', marker='.', linestyle='')

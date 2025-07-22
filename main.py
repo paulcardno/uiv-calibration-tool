@@ -12,8 +12,8 @@ from persist_settings import load_uvi_settings, save_uvi_settings
 
 
 def main():
-   uvi_path = "data/studio_results_20250718_0927_uvi.json"
-   niwa_path = "data/studio_results_20250718_0927_niwa.json"
+   uvi_path = "data/studio_results_20250722_2108_uvi.json"
+   niwa_path = "data/studio_results_20250722_2109_niwa.json"
    # Load settings at startup
    load_uvi_settings()
    # Set a default value if not already set
